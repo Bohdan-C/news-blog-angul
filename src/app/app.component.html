@@ -1,4 +1,12 @@
 <div>
-  <h1>Main HTML</h1>
-  <app-news></app-news>
+  <p>
+    <mat-toolbar class="nav" color="primary">
+      <span>News blog</span>
+    </mat-toolbar>
+  </p>
+  <router-outlet></router-outlet>
 </div>
+
+<!-- <form [formGroup]="form" (ngSubmit)="submit()">
+  <input class="input" type="text" placeholder="Search news" formControlName="search" />
+</form> -->

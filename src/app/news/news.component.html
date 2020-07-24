@@ -1,5 +1,13 @@
-<p>News</p>
-<div *ngFor="let element of news">
-  <h2>{{ element.title}}</h2>
-  <p>{{ element.content}}</p>
+<div class="news-container">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <input class="input" type="text" placeholder="Search news" formControlName="search" />
+  </form>
+  <ul class="list">
+    <mat-card class="card" *ngFor="let element of news | paginate: { itemsPerPage: 10, currentPage: p }">
+        <img mat-card-image src="{{ element.urlToImage }}" alt="def" />
+      <mat-card-title>{{ element.title }}</mat-card-title>
+      <mat-card-subtitle>{{ element.content }}</mat-card-subtitle>
+    </mat-card>
+  </ul>
+  <pagination-controls class="controls" (pageChange)="p = $event"></pagination-controls>
 </div>

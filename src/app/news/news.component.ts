@@ -1,31 +1,55 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { FormGroup, FormControl } from '@angular/forms';
 
 export interface News {
-  title: string,
-  // urlImage?: string,
-  content: string,
+  title: string;
+  urlToImage?: string;
+  content: string;
 }
-
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.css'],
 })
 export class NewsComponent implements OnInit {
+  form: FormGroup;
 
-  news: News[] = []
+  p: number = 1;
+
+  news: News[] = [];
+
+  // API_KEY: string = 'f76722811099462eb91b92fbe17a3cbb';
+
+  // formData: string = 'apple';
 
   constructor(private http: HttpClient) {}
 
+  submit() {
+    console.log('form submited', this.form)
+    let formData = 'apple'
+    console.log('formData', formData)
+    formData = { ...this.form.value };
+    console.log('formData', formData);
+  }
+
   ngOnInit() {
+    let params = new HttpParams();
+    params = params.append('q', 'cars');
+
+    this.form = new FormGroup({
+      search: new FormControl(''),
+    });
+
     this.http
       .get<News[]>(
-        'http://newsapi.org/v2/everything?q=bitcoin&from=2020-06-23&sortBy=publishedAt&apiKey=f76722811099462eb91b92fbe17a3cbb'
+        'http://newsapi.org/v2/everything?' +
+          params +
+          '&from=2020-06-24&sortBy=popularity&apiKey=f76722811099462eb91b92fbe17a3cbb'
       )
-      .subscribe(news => {
-        console.log('response', news)
-        this.news = news
+      .subscribe((news: any) => {
+        console.log('response', news);
+        this.news = news.articles;
       });
   }
 }
