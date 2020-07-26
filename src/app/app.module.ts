@@ -3,15 +3,20 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NewsComponent } from './news/news.component';
+import { PostComponent } from './post/post.component';
+import { AppRoutingModule } from './app.routing.module';
+import { SearchPipe } from './search.pipe';
+
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { AppRoutingModule } from './app.routing.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
-  declarations: [AppComponent, NewsComponent],
+  declarations: [AppComponent, NewsComponent, PostComponent, SearchPipe],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -23,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgxPaginationModule,
     FormsModule,
     ReactiveFormsModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

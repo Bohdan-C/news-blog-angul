@@ -8,7 +8,6 @@
 .card {
   width: 320px;
   margin: 20px;
-  cursor: pointer;
 }
 
 .list {
@@ -20,6 +19,12 @@
 .controls {
   margin: 30px;
 }
+/* image-container {
+  width: 352px;
+  height: 200px;
+}
 
-
-
+image {
+  width: 352px;
+  height: 200px;
+} */

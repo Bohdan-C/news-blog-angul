@@ -1,13 +1,37 @@
 <div class="news-container">
-  <form [formGroup]="form" (ngSubmit)="submit()">
-    <input class="input" type="text" placeholder="Search news" formControlName="search" />
-  </form>
-  <ul class="list">
-    <mat-card class="card" *ngFor="let element of news | paginate: { itemsPerPage: 10, currentPage: p }">
-        <img mat-card-image src="{{ element.urlToImage }}" alt="def" />
-      <mat-card-title>{{ element.title }}</mat-card-title>
-      <mat-card-subtitle>{{ element.content }}</mat-card-subtitle>
-    </mat-card>
-  </ul>
-  <pagination-controls class="controls" (pageChange)="p = $event"></pagination-controls>
+  <mat-form-field class="example-form-field">
+    <mat-label>Search news</mat-label>
+    <input matInput type="text" [(ngModel)]="searchStr" />
+  </mat-form-field>
+  <div *ngIf="!loading; else loadingBlock">
+    <ul class="list">
+      <mat-card
+        class="card"
+        *ngFor="
+          let element of news
+            | paginate: { itemsPerPage: 10, currentPage: p }
+            | searchPosts: searchStr;
+          let i = index
+          "
+          id="{{ +i }}"
+      >
+        <div class="image-container">
+          <a [routerLink]="['/news', i]">
+            <img mat-card-image src="{{ element.urlToImage }}" alt="def" />
+          </a>
+        </div>
+        <p>{{element.id}}</p>
+        <mat-card-title>{{ element.title }}</mat-card-title>
+        <mat-card-subtitle>{{ element.content }}</mat-card-subtitle>
+      </mat-card>
+    </ul>
+  </div>
+  <pagination-controls
+    class="controls"
+    (pageChange)="p = $event"
+  ></pagination-controls>
+
+  <ng-template #loadingBlock>
+    <h1>Loading...</h1>
+  </ng-template>
 </div>

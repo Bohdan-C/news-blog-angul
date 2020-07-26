@@ -1,12 +1,8 @@
 <div>
   <p>
-    <mat-toolbar class="nav" color="primary">
-      <span>News blog</span>
+    <mat-toolbar color="primary">
+      <a class="logo" [routerLink]="['/']">News blog</a>
     </mat-toolbar>
   </p>
   <router-outlet></router-outlet>
 </div>
-
-<!-- <form [formGroup]="form" (ngSubmit)="submit()">
-  <input class="input" type="text" placeholder="Search news" formControlName="search" />
-</form> -->
