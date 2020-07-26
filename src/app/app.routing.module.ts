@@ -1,17 +1,10 @@
-import { NgModule } from "@angular/core";
-import {RouterModule, Routes} from "@angular/router"
-import { NewsComponent } from "./news/news.component";
-import { PostComponent } from './post/post.component';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { NewsComponent } from './news/news.component';
 
-const routes: Routes = [
-    {path: '', component: NewsComponent},
-    {path: 'news/:id', component: PostComponent},
-]
-
+const routes: Routes = [{ path: '', component: NewsComponent }];
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule {}

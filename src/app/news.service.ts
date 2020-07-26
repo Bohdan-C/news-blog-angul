@@ -1,7 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { News } from './interfaces';
-
 @Injectable({ providedIn: 'root' })
 export class NewsService implements OnInit {
   API_KEY = 'f76722811099462eb91b92fbe17a3cbb'

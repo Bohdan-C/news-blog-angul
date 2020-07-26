@@ -4,8 +4,3 @@ export interface News {
   urlToImage?: string;
   content: string;
 }
-
-export interface Post {
-  title: string;
-  id: number;
-}

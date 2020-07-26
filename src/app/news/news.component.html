@@ -11,14 +11,10 @@
           let element of news
             | paginate: { itemsPerPage: 10, currentPage: p }
             | searchPosts: searchStr;
-          let i = index
           "
-          id="{{ +i }}"
       >
         <div class="image-container">
-          <a [routerLink]="['/news', i]">
             <img mat-card-image src="{{ element.urlToImage }}" alt="def" />
-          </a>
         </div>
         <p>{{element.id}}</p>
         <mat-card-title>{{ element.title }}</mat-card-title>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../news.service';
 import { News } from '../interfaces';
 @Component({
@@ -6,7 +6,6 @@ import { News } from '../interfaces';
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.css'],
 })
-@Injectable({ providedIn: 'root' })
 export class NewsComponent implements OnInit {
   p: number = 1;
 

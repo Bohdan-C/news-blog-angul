@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NewsComponent } from './news/news.component';
-import { PostComponent } from './post/post.component';
 import { AppRoutingModule } from './app.routing.module';
 import { SearchPipe } from './search.pipe';
 
@@ -16,7 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
-  declarations: [AppComponent, NewsComponent, PostComponent, SearchPipe],
+  declarations: [AppComponent, NewsComponent, SearchPipe],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -30,7 +29,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ReactiveFormsModule,
     MatInputModule,
   ],
-  providers: [],
+  providers: [NewsComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
